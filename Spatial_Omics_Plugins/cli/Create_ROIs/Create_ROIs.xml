@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<executable>
+  <category>HistomicsTK</category>
+  <title>Create ROIs</title>
+  <description>Generate base-level ROIs for aggregation and visualization of spatial omics.</description>
+  <version>0.1.0</version>
+  <documentation-url>https://github.com/spborder/spatial-omics-plugins</documentation-url>
+  <license>Apache 2.0</license>
+  <contributor>Samuel Border</contributor>
+  <acknowledgements>This work is part of efforts in digital pathology by the Sarder Lab: UFL.</acknowledgements>
+  <parameters>
+    <label>IO</label>
+    <description>Input/output parameters.</description>
+    <image reference='_girder_id_'>
+      <name>image_file_id</name>
+      <label>Image</label>
+      <description>Select the image you would like to attach these ROIs to.</description>
+      <channel>input</channel>
+      <index>0</index>
+    </image>
+    <image reference='_girder_id_'>
+      <name>omics_file_id</name>
+      <label>Omics file</label>
+      <description>Omics file to be used for ROI creation.</description>
+      <channel>input</channel>
+      <index>1</index>
+    </image>
+    <string>
+      <name>definitions_file</name>
+      <label>Definintions file</label>
+      <default>''</default>
+      <description> Definitons file</description>
+      <channel>input</channel>
+      <index>2</index>
+    </string>
+  </parameters>
+  <parameters advanced="true">
+    <label>Girder API URL and Key</label>
+    <description>A Girder API URL and token for Girder client</description>
+    <string>
+      <name>girderApiUrl</name>
+      <longflag>api-url</longflag>
+      <label>Girder API URL</label>
+      <description>A Girder API URL (e.g., https://girder.example.com:443/api/v1)</description>
+      <default></default>
+    </string>
+    <string>
+      <name>girderToken</name>
+      <longflag>token</longflag>
+      <label>Girder API Token</label>
+      <description>A Girder token</description>
+      <default></default>
+    </string>
+    <string>
+      <name>omics_args</name>
+      <longflag>omics_arguments</longflag>
+      <default></defaut>
+      <label>Additional Omics Arguments</label>
+      <description>Additional Omics Arguments can include gene selection methods (method = one of highest_mean, highly_variable, or specific list (with "list" followed by list of genes as additional parameter)), or the names of columns (comma separated) to use for Omics data if providing a CSV file (columns = column1,column2,etc.).</description>
+    </string>
+    <string>
+      <name>roi_shape_args</name>
+      <longflag>roi_shape_arguments</longflag>
+      <default></default>
+      <label>ROI Shape arguments</label>
+      <description>ROI shape arguments can include "radius" or "diameter" for circular ROIs (dimensions in microns) or "geojson" with the corresponding itemId for more complex ROIs.</description>
+    </string>
+  </parameters>
+</executable>

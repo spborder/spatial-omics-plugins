@@ -9,7 +9,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 
-with open('README.md', 'rt') as readme_file:
+with open('README.rst', 'rt') as readme_file:
     readme = readme_file.read()
 
 
@@ -46,6 +46,7 @@ setup(
     include_package_data=True,
     install_requires=[
         # scientific packages
+        'numpy',
         'pandas',
         'girder_client>=3.1.17',
         # cli
@@ -53,7 +54,8 @@ setup(
         'girder-slicer-cli-web',
         'matplotlib',
         'wsi-annotations-kit>=1.4.10',
-        'anndata'
+        'anndata',
+        'rpy2'
     ],
     license='Apache Software License 2.0',
     keywords='Spatial_Omics_Plugins',
